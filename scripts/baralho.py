@@ -3,14 +3,19 @@ from pprint import pprint
 
 class TipoBaralho:
 
-    def espanhol(self):
-        self.naipes = {
+    ESPANHOL = 'espanhol'
+    _NAIPES = {
+        ESPANHOL:
+        {
             'O': 'ouros',
             'C': 'copas',
             'E': 'espadas',
             'P': 'paus',
-        }
-        self.cartas = {
+        },
+    }
+    _CARTAS = {
+        ESPANHOL:
+        {
             'A': 'ás',
             '2': '2',
             '3': '3',
@@ -21,16 +26,28 @@ class TipoBaralho:
             'S': 'sota',
             'C': 'cavalo',
             'R': 'rei',
-        }
-        return self
+        },
+    }
+
+    def __init__(self, tipo=None) -> None:
+        self.tipo = tipo if tipo else self.ESPANHOL
+
+    @property
+    def naipes(self):
+        return self._NAIPES[self.tipo]
+
+    @property
+    def cartas(self):
+        return self._CARTAS[self.tipo]
+
 
 class Baralho:
 
     __ALEATORIA = 'aleatória'
     __ORDENADA = 'ordenada'
 
-    def __init__(self, tipo = TipoBaralho().espanhol) -> None:
-        self.tipo = tipo()
+    def __init__(self, tipo=None) -> None:
+        self.tipo_baralho = TipoBaralho(tipo)
         self.ordena()
         
     def embaralha(self):
@@ -44,8 +61,8 @@ class Baralho:
     def inicializa_baralho(self):
         self.monte = [
             (n, c)
-            for n in self.tipo.naipes
-            for c in self.tipo.cartas
+            for n in self.tipo_baralho.naipes
+            for c in self.tipo_baralho.cartas
         ]
     
     def mostra_monte(self, n=0):
