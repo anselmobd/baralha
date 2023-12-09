@@ -1,0 +1,48 @@
+from pprint import pprint
+
+
+class CustomTipoBaralho:
+
+    TESTE = 'teste'
+    ESPANHOL = 'espanhol'
+    _NAIPES = {
+        TESTE:
+        {
+            'O': 'ouros',
+        },
+        ESPANHOL:
+        {
+            'o': 'ouros',
+            'c': 'copas',
+            'e': 'espadas',
+            'p': 'paus',
+        },
+    }
+    _CARTAS = {
+        TESTE:
+        {
+            '1': '1',
+            '2': '2',
+            '3': '3',
+            '4': '4',
+            '5': '5',
+            '6': '6',
+            '7': '7',
+            '8': '8',
+            '9': '9',
+            '10': '10',
+        },
+        ESPANHOL:
+        {
+            'A': 'ás',
+            '2': '2',
+            '3': '3',
+            '4': '4',
+            '5': '5',
+            '6': '6',
+            '7': '7',
+            'S': 'sota',
+            'C': 'cavalo',
+            'R': 'rei',
+        },
+    }

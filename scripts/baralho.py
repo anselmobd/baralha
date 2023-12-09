@@ -1,63 +1,7 @@
 from pprint import pprint
 from random import seed, randint
 
-
-class TipoBaralho:
-
-    TESTE = 'teste'
-    ESPANHOL = 'espanhol'
-    _NAIPES = {
-        TESTE:
-        {
-            'O': 'ouros',
-        },
-        ESPANHOL:
-        {
-            'o': 'ouros',
-            'c': 'copas',
-            'e': 'espadas',
-            'p': 'paus',
-        },
-    }
-    _CARTAS = {
-        TESTE:
-        {
-            '1': '1',
-            '2': '2',
-            '3': '3',
-            '4': '4',
-            '5': '5',
-            '6': '6',
-            '7': '7',
-            '8': '8',
-            '9': '9',
-            '10': '10',
-        },
-        ESPANHOL:
-        {
-            'A': 'ás',
-            '2': '2',
-            '3': '3',
-            '4': '4',
-            '5': '5',
-            '6': '6',
-            '7': '7',
-            'S': 'sota',
-            'C': 'cavalo',
-            'R': 'rei',
-        },
-    }
-
-    def __init__(self, tipo=None) -> None:
-        self.tipo = tipo if tipo else self.TESTE
-
-    @property
-    def naipes(self):
-        return self._NAIPES[self.tipo]
-
-    @property
-    def cartas(self):
-        return self._CARTAS[self.tipo]
+from baralla.tipo_baralho import TipoBaralho
 
 
 class Baralho:
@@ -303,4 +247,5 @@ def main():
 
 if __name__ == '__main__':
     # seed(42)
+    testa_baralho()
     main()
