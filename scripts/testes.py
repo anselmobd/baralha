@@ -15,7 +15,7 @@ def testa_baralho():
     
     baralho.str_tudo(5)
     while baralho.monte:
-        baralho.vira_carta()
+        baralho.get_carta()
         baralho.str_tudo(5)
 
 

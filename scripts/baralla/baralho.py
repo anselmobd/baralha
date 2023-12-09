@@ -29,10 +29,14 @@ class Baralho:
         ]
         self.descarte = []
     
-    def vira_carta(self):
+    def get_carta(self):
         carta_idx = 0 if self.ordem == self.__ORDENADA else randint(0, len(self.monte)-1)
-        self.descarte.append(self.monte[carta_idx])
+        carta = self.monte[carta_idx]
+        self.descarte.append(carta)
         del(self.monte[carta_idx])
+        return carta
+
+    # metodos para verificar conteúdo de artributos
 
     def mostra_monte(self, n=0):
         self.mostra_cartas(self.monte, n)

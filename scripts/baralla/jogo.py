@@ -16,11 +16,24 @@ class Jogo:
 
     def inicia(self):
         self.prepara()
+        self.ciclo()
 
     def prepara(self):
         print("preparando o jogo")
+        self.grupo.set_tipo_jogo(self.tipo_jogo)
         self.baralho.embaralha()
+        self.distribui()
+
+    def distribui(self):
         for _ in range(self.grupo.num_jogadores):
             jogador = self.grupo.get_jogador
-            print(jogador.nome)
+            print('cartas para', jogador.nome)
+            for _ in range(self.caracteristicas['preparação do jogo']['parâmetros']['num_cartas']):
+                carta = self.baralho.get_carta()
+                jogador.recebe_carta(carta)
+            pprint(jogador.mao)
             self.grupo.proximo()
+
+    def ciclo(self):
+        # self.grupo.da_vez.sua_vez()
+        pass
