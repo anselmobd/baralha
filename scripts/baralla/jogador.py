@@ -29,6 +29,10 @@ class Grupo:
     def idx_da_vez(self):
         return self._idx_da_vez
 
+    @property
+    def get_jogador(self) -> Jogador:
+        return self.jogadores[self.idx_da_vez]
+
     def adiciona(self, jogador):
         self.jogadores[self.num_jogadores] = jogador
 
