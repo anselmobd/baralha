@@ -11,7 +11,9 @@ class CustomTipoJogo:
         BRISCA: {
             'baralho': TipoBaralho.ESPANHOL,
             'número de jogadores': 2,  # 3 e 4 é possível, mas tem pequenas alterações nas regras
-            'partida': 'composta de vários jogos',
+            'partida': {
+                'num_jogos': 4,
+            },
             'sentido jogadores': 'anti-horário',
             'primeiro crupier': 'jogador sorteado',
             'seguinte crupier': 'depois o próximo jogador',
@@ -66,7 +68,9 @@ class CustomTipoJogo:
         TESTE: {
             'baralho': TipoBaralho.ESPANHOL,
             'número de jogadores': 2,
-            'partida': 'composta de 1 jogo',
+            'partida': {
+                'num_jogos': 1,
+            },
             'sentido jogadores': 'anti-horário',
             'crupier': 'externo',
             'preparação do jogo': (
