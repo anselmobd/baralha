@@ -3,30 +3,10 @@ from random import seed, randint
 
 from baralla.baralho import Baralho
 from baralla.jogador import Grupo, Jogador
+from baralla.jogo import Jogo
+from baralla.partida import Partida
 from baralla.tipo_baralho import TipoBaralho
 from baralla.tipo_jogo import TipoJogo
-
-
-class Jogo:
-    def __init__(self, carac_jogo) -> None:
-        self.carac_jogo = carac_jogo
-        self.grupo = None
-
-    def iniciar(self):
-        print("iniciando jogo")
-        pass
-
-
-class Partida:
-    
-    def __init__(self, tipo_jogo=TipoJogo.TESTE, grupo=None) -> None:
-        self.carac_jogo = TipoJogo().caracteristicas(tipo_jogo)
-        self.grupo = grupo
-
-    def iniciar(self):
-        for idx_jogo in range(self.carac_jogo['partida']['num_jogos']):
-            jogo = Jogo(self.carac_jogo)
-            jogo.iniciar()
 
 
 def testa_baralho():
