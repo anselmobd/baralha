@@ -124,7 +124,7 @@ class Baralho:
         )
 
 
-class Jogo:
+class TipoJogo:
 
     BRISCA = 'brisca'
     TESTE = 'teste'
@@ -226,14 +226,47 @@ class Jogo:
     }
 
 
-def main():
+class Jogador:
+
+    def __init__(self, nome) -> None:
+        self.nome = nome
+
+
+class Jogadores:
+
+    def __init__(self) -> None:
+        self.grupo = []
+
+    @property
+    def ativos(self):
+        return len(self.grupo)
+
+    def adiciona(self, jogador):
+        self.grupo.append(jogador)
+
+
+class Partida:
+    
+    def __init__(self) -> None:
+        pass
+
+
+class Jogo:
+    pass
+
+
+def testa_baralho():
     baralho = Baralho(TipoBaralho.ESPANHOL)
     baralho.embaralha()
     
+    baralho.str_tudo(5)
     while baralho.monte:
-        baralho.str_tudo()
         baralho.vira_carta()
-        baralho.str_tudo()
+        baralho.str_tudo(5)
+
+
+def main():
+    testa_baralho()
 
 
 if __name__ == '__main__':
