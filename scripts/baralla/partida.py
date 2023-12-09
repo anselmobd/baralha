@@ -14,6 +14,7 @@ class Partida:
         self.caracteristicas = TipoJogo(tipo_jogo).caracteristicas
 
     def iniciar(self):
+        self.grupo.sorteia()
         for idx_jogo in range(self.caracteristicas['partida']['num_jogos']):
-            jogo = Jogo(self.tipo_jogo)
-            jogo.iniciar()
+            jogo = Jogo(self.tipo_jogo, self.grupo)
+            jogo.inicia()
