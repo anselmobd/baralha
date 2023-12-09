@@ -231,18 +231,36 @@ class Jogador:
     def __init__(self, nome) -> None:
         self.nome = nome
 
+    def __str__(self) -> str:
+        return self.nome
 
-class Jogadores:
+
+class Grupo:
 
     def __init__(self) -> None:
-        self.grupo = []
+        self.jogadores = {}
+        self._idx_da_vez = 0
 
     @property
-    def ativos(self):
-        return len(self.grupo)
+    def num_jogadores(self):
+        return len(self.jogadores)
+
+    @property
+    def da_vez(self):
+        return self.jogadores.get(self._idx_da_vez, "")
+
+    @property
+    def idx_da_vez(self):
+        return self._idx_da_vez
 
     def adiciona(self, jogador):
-        self.grupo.append(jogador)
+        self.jogadores[self.num_jogadores] = jogador
+
+    def sorteia(self):
+        self._idx_da_vez = randint(0, self.num_jogadores - 1)
+
+    def proximo(self):
+        self._idx_da_vez = (self._idx_da_vez + 1) % self.num_jogadores
 
 
 class Partida:
@@ -265,10 +283,24 @@ def testa_baralho():
         baralho.str_tudo(5)
 
 
+def testa_jogadores():
+    anselmo = Jogador('Anselmo')
+    alice = Jogador('Alice')
+
+    grupo = Grupo()
+    grupo.adiciona(anselmo)
+    grupo.adiciona(alice)
+
+    for _ in range(5):
+        grupo.proximo()
+        print('dix da vez', grupo.idx_da_vez)
+        print('da vez', grupo.da_vez)
+
+
 def main():
-    testa_baralho()
+    testa_jogadores()
 
 
 if __name__ == '__main__':
-    seed(42)
+    # seed(42)
     main()
