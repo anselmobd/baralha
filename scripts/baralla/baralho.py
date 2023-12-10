@@ -2,6 +2,7 @@ from pprint import pprint
 from random import randint
 
 from baralla.tipo_baralho import TipoBaralho
+from baralla.carta import Carta
 
 
 class Baralho:
@@ -35,9 +36,9 @@ class Baralho:
 
     def cria_baralho(self):
         self.baralho = [
-            (c, n)
+            Carta(nf, n)
             for n in self.tipo_baralho.naipes
-            for c in self.tipo_baralho.cartas
+            for nf in self.tipo_baralho.numeros_figuras
         ]
     
     def pega_carta(self):

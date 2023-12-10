@@ -5,10 +5,10 @@ class CustomTipoBaralho:
 
     TESTE = 'teste'
     ESPANHOL = 'espanhol'
-    _NAIPES = {
+    _NAIPE = {
         TESTE:
         {
-            'O': 'ouros',
+            'o': 'ouros',
         },
         ESPANHOL:
         {
@@ -18,7 +18,7 @@ class CustomTipoBaralho:
             'p': 'paus',
         },
     }
-    _CARTAS = {
+    _NUMERO_FIGURA = {
         TESTE:
         {
             '1': '1',

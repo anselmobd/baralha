@@ -12,3 +12,6 @@ class Carta:
 
     def __str__(self) -> str:
         return f"{self.numero}{self.naipe}"
+
+    def __repr__(self) -> str:
+        return repr(str(self))

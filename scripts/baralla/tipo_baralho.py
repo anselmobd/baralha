@@ -10,8 +10,8 @@ class TipoBaralho(CustomTipoBaralho):
 
     @property
     def naipes(self):
-        return self._NAIPES[self.tipo]
+        return self._NAIPE[self.tipo]
 
     @property
-    def cartas(self):
-        return self._CARTAS[self.tipo]
+    def numeros_figuras(self):
+        return self._NUMERO_FIGURA[self.tipo]

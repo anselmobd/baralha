@@ -24,7 +24,11 @@ class Mesa:
             'jogador': jogador,
         })
 
-    # debug output
+    def __str__(self) -> str:
+        return pformat([
+            carta['carta']
+            for carta in self.cartas
+        ])
 
     def __repr__(self) -> str:
         return pformat({
