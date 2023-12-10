@@ -40,7 +40,7 @@ def testa_jogadores():
 
 def testa_partida():
     grupo = monta_grupo_de_2()
-    partida = Partida(grupo=grupo)
+    partida = Jogo(grupo=grupo)
     partida.iniciar()
 
 

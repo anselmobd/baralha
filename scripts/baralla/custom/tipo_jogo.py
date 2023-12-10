@@ -11,13 +11,13 @@ class CustomTipoJogo:
         BRISCA: {
             'baralho': TipoBaralho.ESPANHOL,
             'número de jogadores': 2,  # 3 e 4 é possível, mas tem pequenas alterações nas regras
-            'partida': {
-                'num_jogos': 4,
+            'jogo': {
+                'num_partidas': 4,
             },
             'sentido jogadores': 'anti-horário',
             'primeiro carteador': 'jogador sorteado',
             'seguinte carteador': 'depois o próximo jogador',
-            'preparação do jogo': {
+            'preparação da partida': {
                 'passos': (
                     'carteador embaralha',
                     'carteador distribui n_cartas cartas para cada jogador',
@@ -30,7 +30,7 @@ class CustomTipoJogo:
                     'num_cartas': 3,
                 }
             },
-            'jogo': {
+            'partida': {
                 'ciclo': (
                     'jogador da vez escolhe uma das cartas da mão e coloca aberta na mesa',
                     'cada jogador faz o mesmo até cada jogador descartar uma carta',
@@ -73,12 +73,12 @@ class CustomTipoJogo:
         TESTE: {
             'baralho': TipoBaralho.ESPANHOL,
             'número de jogadores': 2,
-            'partida': {
-                'num_jogos': 1,
+            'jogo': {
+                'num_partidas': 1,
             },
             'sentido jogadores': 'anti-horário',
             'carteador': 'externo',
-            'preparação do jogo': {
+            'preparação da partida': {
                 'passos': (
                     'carteador embaralha',
                     'carteador distribui n_cartas cartas para cada jogador',
@@ -89,7 +89,7 @@ class CustomTipoJogo:
                     'num_cartas': 3,
                 }
             },
-            'jogo': {
+            'partida': {
                 'ciclo': (
                     'jogador da vez escolhe uma das cartas da mão e coloca aberta na mesa',
                     'cada jogador faz o mesmo até cada jogador descartar uma carta',
