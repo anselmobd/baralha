@@ -15,12 +15,12 @@ class CustomTipoJogo:
                 'num_jogos': 4,
             },
             'sentido jogadores': 'anti-horário',
-            'primeiro crupier': 'jogador sorteado',
-            'seguinte crupier': 'depois o próximo jogador',
+            'primeiro carteador': 'jogador sorteado',
+            'seguinte carteador': 'depois o próximo jogador',
             'preparação do jogo': {
                 'passos': (
-                    'crupier embaralha',
-                    'crupier distribui n_cartas cartas para cada jogador',
+                    'carteador embaralha',
+                    'carteador distribui n_cartas cartas para cada jogador',
                     'vira uma carta cujo naipe será o trunfo',
                     'coloca a carta indicadora do trunfo aberta na mesa',
                     'coloca o restante do baralho fechado na mesa, tampando metade da carta trunfo',  # que é assim considerada a última carta do monte
@@ -77,11 +77,11 @@ class CustomTipoJogo:
                 'num_jogos': 1,
             },
             'sentido jogadores': 'anti-horário',
-            'crupier': 'externo',
+            'carteador': 'externo',
             'preparação do jogo': {
                 'passos': (
-                    'crupier embaralha',
-                    'crupier distribui n_cartas cartas para cada jogador',
+                    'carteador embaralha',
+                    'carteador distribui n_cartas cartas para cada jogador',
                     'coloca o restante do baralho fechado na mesa',
                     'jogo começa pelo próximo jogador',
                 ),
