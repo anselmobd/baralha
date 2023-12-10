@@ -6,49 +6,55 @@ from baralla.tipo_baralho import TipoBaralho
 
 class Baralho:
 
-    __ALEATORIA = 'aleatória'
-    __ORDENADA = 'ordenada'
-
     def __init__(self, tipo=None) -> None:
         self.tipo_baralho = TipoBaralho(tipo)
+        self.cria_baralho()
 
-        self.exclui_baralho()
+        self.monte = []
+        self.descarte = []
         self.ordena()
         
     def __repr__(self):
         tipo = self.tipo_baralho.tipo
+        tam_baralho = len(self.baralho)
         tam_monte = len(self.monte)
         tam_decarte = len(self.descarte)
-        return repr(f"Baralho {tipo}; {tam_monte} cartas no monte, {tam_decarte} fora")
+        return repr(f"Baralho {tipo} de {tam_baralho} cartas, {tam_monte} no monte e {tam_decarte} fora")
 
     def embaralha(self):
-        self.ordem = self.__ALEATORIA
-        self.inicializa_baralho()
+        self.monte = []
+        temporario = self.baralho.copy()
+        while temporario:
+            carta_idx = randint(0, len(temporario)-1)
+            carta = temporario[carta_idx]
+            self.monte.append(carta)
+            del(temporario[carta_idx])
 
     def ordena(self):
-        self.ordem = self.__ORDENADA
-        self.inicializa_baralho()
+        self.monte = self.baralho.copy()
 
-    def exclui_baralho(self):
-        self.monte = []
-        self.descarte = []
-    
-    def inicializa_baralho(self):
-        self.exclui_baralho()
-        self.monte = [
+    def cria_baralho(self):
+        self.baralho = [
             (c, n)
             for n in self.tipo_baralho.naipes
             for c in self.tipo_baralho.cartas
         ]
     
-    def get_carta(self):
-        carta_idx = 0 if self.ordem == self.__ORDENADA else randint(0, len(self.monte)-1)
+    def pega_carta(self):
+        carta_idx = 0
         carta = self.monte[carta_idx]
         self.descarte.append(carta)
         del(self.monte[carta_idx])
         return carta
 
-    def see_carta(self, position=None):
+    def coloca_carta_embaixo_monte(self, carta):
+        self.descarte = [
+            fica for fica in self.descarte
+            if fica != carta
+        ]
+        self.monte.append(carta)
+
+    def ve_carta(self, position=None):
         carta_idx = position if position else len(self.monte)-1
         return self.monte[carta_idx]
 

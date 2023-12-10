@@ -33,13 +33,14 @@ class Jogo:
             jogador = self.grupo.get_jogador
             print('cartas para', jogador)
             for _ in range(self.caracteristicas['preparação do jogo']['parâmetros']['num_cartas']):
-                carta = self.baralho.get_carta()
+                carta = self.baralho.pega_carta()
                 jogador.recebe_carta(carta)
             pprint(jogador.mao)
             self.grupo.proximo()
 
     def define_trumfo(self):
-        carta = self.baralho.see_carta()
+        carta = self.baralho.pega_carta()
+        self.baralho.coloca_carta_embaixo_monte(carta)
         self.mesa.set_trumfo(carta)
 
     def ciclo(self):
