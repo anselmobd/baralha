@@ -8,12 +8,12 @@ from baralla.grupo import Grupo
 class Mesa:
 
     def __init__(self) -> None:
-        self.trumfo = None
+        self.trunfo = None
         self.baralho = None
         self.cartas = []
 
-    def set_trumfo(self, carta):
-        self.trumfo = carta
+    def set_trunfo(self, carta):
+        self.trunfo = carta
 
     def set_baralho(self, baralho):
         self.baralho = baralho
@@ -28,7 +28,7 @@ class Mesa:
 
     def __repr__(self) -> str:
         return pformat({
-            'trumfo': self.trumfo,
+            'trunfo': self.trunfo,
             'baralho': self.baralho,
             'cartas': self.cartas,
         })

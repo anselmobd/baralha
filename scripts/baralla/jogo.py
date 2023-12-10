@@ -25,7 +25,7 @@ class Jogo:
         self.grupo.set_tipo_jogo(self.tipo_jogo)
         self.baralho.embaralha()
         self.distribui()
-        self.define_trumfo()
+        self.define_trunfo()
         self.mesa.set_baralho(self.baralho)
 
     def distribui(self):
@@ -38,10 +38,10 @@ class Jogo:
             pprint(jogador.mao)
             self.grupo.proximo()
 
-    def define_trumfo(self):
+    def define_trunfo(self):
         carta = self.baralho.pega_carta()
         self.baralho.coloca_carta_embaixo_monte(carta)
-        self.mesa.set_trumfo(carta)
+        self.mesa.set_trunfo(carta)
 
     def ciclo(self):
         print("iniciando ciclo")
