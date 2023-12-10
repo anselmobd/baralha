@@ -17,6 +17,9 @@ class Jogador:
     def __str__(self) -> str:
         return self.nome
 
+    def __repr__(self) -> str:
+        return repr(self.nome)
+
     def recebe_carta(self, carta):
         self._mao.append(carta)
 
@@ -28,38 +31,5 @@ class Jogador:
         self.tipo_jogo = tipo_jogo
         self.caracteristicas = TipoJogo(tipo_jogo).caracteristicas
 
-
-class Grupo:
-
-    def __init__(self) -> None:
-        self.jogadores = {}
-        self._idx_da_vez = 0
-
-    @property
-    def num_jogadores(self):
-        return len(self.jogadores)
-
-    @property
-    def da_vez(self):
-        return self.jogadores.get(self._idx_da_vez, "")
-
-    @property
-    def idx_da_vez(self):
-        return self._idx_da_vez
-
-    @property
-    def get_jogador(self) -> Jogador:
-        return self.jogadores[self.idx_da_vez]
-
-    def adiciona(self, jogador):
-        self.jogadores[self.num_jogadores] = jogador
-
-    def sorteia(self):
-        self._idx_da_vez = randint(0, self.num_jogadores - 1)
-
-    def proximo(self):
-        self._idx_da_vez = (self._idx_da_vez + 1) % self.num_jogadores
-
-    def set_tipo_jogo(self, tipo_jogo):
-        for idx_jogador in self.jogadores:
-            self.jogadores[idx_jogador].set_tipo_jogo = tipo_jogo
+    def joga(self, mesa):
+        mesa.coloca_carta(self.mao.pop(), self)
