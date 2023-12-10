@@ -11,8 +11,16 @@ class Baralho:
 
     def __init__(self, tipo=None) -> None:
         self.tipo_baralho = TipoBaralho(tipo)
+
+        self.exclui_baralho()
         self.ordena()
         
+    def __repr__(self):
+        tipo = self.tipo_baralho.tipo
+        tam_monte = len(self.monte)
+        tam_decarte = len(self.descarte)
+        return repr(f"Baralho {tipo}; {tam_monte} cartas no monte, {tam_decarte} fora")
+
     def embaralha(self):
         self.ordem = self.__ALEATORIA
         self.inicializa_baralho()
@@ -21,13 +29,17 @@ class Baralho:
         self.ordem = self.__ORDENADA
         self.inicializa_baralho()
 
+    def exclui_baralho(self):
+        self.monte = []
+        self.descarte = []
+    
     def inicializa_baralho(self):
+        self.exclui_baralho()
         self.monte = [
             (c, n)
             for n in self.tipo_baralho.naipes
             for c in self.tipo_baralho.cartas
         ]
-        self.descarte = []
     
     def get_carta(self):
         carta_idx = 0 if self.ordem == self.__ORDENADA else randint(0, len(self.monte)-1)
@@ -35,6 +47,10 @@ class Baralho:
         self.descarte.append(carta)
         del(self.monte[carta_idx])
         return carta
+
+    def see_carta(self, position=None):
+        carta_idx = position if position else len(self.monte)-1
+        return self.monte[carta_idx]
 
     # metodos para verificar conteúdo de artributos
 
