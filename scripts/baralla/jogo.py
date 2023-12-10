@@ -2,7 +2,8 @@ from pprint import pprint
 
 from baralla.tipo_jogo import TipoJogo
 from baralla.baralho import Baralho
-from baralla.jogador import Grupo
+from baralla.grupo import Grupo
+from baralla.mesa import Mesa
 
 
 class Jogo:
@@ -13,6 +14,7 @@ class Jogo:
 
         self.caracteristicas = TipoJogo(tipo_jogo).caracteristicas
         self.baralho = Baralho(self.caracteristicas['baralho'])
+        self.mesa = Mesa()
 
     def inicia(self):
         self.prepara()
@@ -23,17 +25,24 @@ class Jogo:
         self.grupo.set_tipo_jogo(self.tipo_jogo)
         self.baralho.embaralha()
         self.distribui()
+        self.define_trumfo()
+        self.mesa.set_baralho(self.baralho)
 
     def distribui(self):
         for _ in range(self.grupo.num_jogadores):
             jogador = self.grupo.get_jogador
-            print('cartas para', jogador.nome)
+            print('cartas para', jogador)
             for _ in range(self.caracteristicas['preparação do jogo']['parâmetros']['num_cartas']):
                 carta = self.baralho.get_carta()
                 jogador.recebe_carta(carta)
             pprint(jogador.mao)
             self.grupo.proximo()
 
+    def define_trumfo(self):
+        carta = self.baralho.see_carta()
+        self.mesa.set_trumfo(carta)
+
     def ciclo(self):
-        # self.grupo.da_vez.sua_vez()
-        pass
+        print("iniciando ciclo")
+        self.grupo.todos_jogam(self.mesa)
+        print(repr(self.mesa))

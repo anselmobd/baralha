@@ -2,7 +2,8 @@ from pprint import pprint
 from random import seed, randint
 
 from baralla.baralho import Baralho
-from baralla.jogador import Grupo, Jogador
+from baralla.grupo import Grupo
+from baralla.jogador import Jogador
 from baralla.jogo import Jogo
 from baralla.partida import Partida
 from baralla.tipo_baralho import TipoBaralho
