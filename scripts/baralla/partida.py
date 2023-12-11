@@ -19,9 +19,9 @@ class Partida:
     def inicia(self):
         self.prepara()
         self.ciclo()
+        self.print_estado()
 
     def prepara(self):
-        print("preparando o jogo")
         self.grupo.set_tipo_jogo(self.tipo_jogo)
         self.baralho.embaralha()
         self.distribui()
@@ -31,11 +31,9 @@ class Partida:
     def distribui(self):
         for _ in range(self.grupo.num_jogadores):
             jogador = self.grupo.get_jogador
-            print('cartas para', jogador)
-            for _ in range(self.caracteristicas['preparação do jogo']['parâmetros']['num_cartas']):
+            for _ in range(self.caracteristicas['preparação da partida']['parâmetros']['num_cartas']):
                 carta = self.baralho.pega_carta()
                 jogador.recebe_carta(carta)
-            pprint(jogador.mao)
             self.grupo.proximo()
 
     def define_trunfo(self):
@@ -44,6 +42,9 @@ class Partida:
         self.mesa.set_trunfo(carta)
 
     def ciclo(self):
-        print("iniciando ciclo")
         self.grupo.todos_jogam(self.mesa)
-        print(repr(self.mesa))
+
+    def print_estado(self):
+        print('monte', self.baralho.get_str_monte())
+        print('grupo', self.grupo.str_estado())
+        print('mesa', repr(self.mesa))
