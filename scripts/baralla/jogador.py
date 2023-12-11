@@ -32,4 +32,5 @@ class Jogador:
         self.caracteristicas = TipoJogo(tipo_jogo).caracteristicas
 
     def joga(self, mesa):
+        """Aqui entrará a lógica de decisão do jogador"""
         mesa.coloca_carta(self.mao.pop(), self)

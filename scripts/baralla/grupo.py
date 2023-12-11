@@ -43,3 +43,9 @@ class Grupo:
         for _ in self.jogadores:
             self.jogadores[self.idx_da_vez].joga(mesa)
             self.proximo()
+
+    def str_estado(self):
+        return {
+            self.jogadores[jogador].nome: self.jogadores[jogador].mao
+            for jogador in self.jogadores
+        }
