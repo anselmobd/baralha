@@ -38,14 +38,14 @@ def testa_jogadores():
         print('da vez', grupo.da_vez)
 
 
-def testa_partida():
+def testa_jogo():
     grupo = monta_grupo_de_2()
     partida = Jogo(grupo=grupo)
     partida.iniciar()
 
 
 def main():
-    testa_partida()
+    testa_jogo()
 
 
 if __name__ == '__main__':
