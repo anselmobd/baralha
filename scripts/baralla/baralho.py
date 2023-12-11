@@ -59,37 +59,5 @@ class Baralho:
         carta_idx = position if position else len(self.monte)-1
         return self.monte[carta_idx]
 
-    # metodos para verificar conteúdo de artributos
-
-    def mostra_monte(self, n=0):
-        self.mostra_cartas(self.monte, n)
-
-    def mostra_descarte(self, n=0):
-        self.mostra_cartas(self.descarte, n)
-
-    def mostra_tudo(self, n=0):
-        print('monte')
-        self.mostra_cartas(self.monte, n)
-        print('descarte')
-        self.mostra_cartas(self.descarte, n)
-
-    def get_cartas(self, cartas, n=0):
-        result = []
-        for i, carta in enumerate(cartas, start=1):
-            result.append(carta)
-            if i == n:
-                break
-        return result
-
-    def mostra_cartas(self, cartas, n=0):
-        for carta in self.get_cartas(cartas, n):
-            pprint(carta)
-
-    def str_tudo(self, n=0):
-        print('monte', self.str_cartas(self.monte, n))
-        print('descarte', self.str_cartas(self.descarte, n))
-
-    def str_cartas(self, cartas, n=0):
-        return "-".join(
-            [f"{c}{n}" for c, n in self.get_cartas(cartas, n)]
-        )
+    def get_str_monte(self):
+        return "-".join([str(carta) for carta in self.monte])
