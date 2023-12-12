@@ -37,6 +37,8 @@ class Jogador:
 
     def joga(self, mesa):
         """Aqui entrará a lógica de decisão do jogador"""
+        carta_idx = randint(0, len(self.mao)-1)
+        mesa.coloca_carta(self.mao.pop(carta_idx), self)
 
     def recolhe_mesa(self, mesa) -> None:
         while mesa.cartas:
