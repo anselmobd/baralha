@@ -35,6 +35,11 @@ class Grupo:
     def proximo(self):
         self._idx_da_vez = (self._idx_da_vez + 1) % self.num_jogadores
 
+    def define_jogador_da_vez(self, jogador):
+        for idx_jogador in self.jogadores:
+            if self.jogadores[idx_jogador] == jogador:
+                self._idx_da_vez = idx_jogador
+
     def set_tipo_jogo(self, tipo_jogo):
         for idx_jogador in self.jogadores:
             self.jogadores[idx_jogador].set_tipo_jogo = tipo_jogo
