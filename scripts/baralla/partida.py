@@ -54,5 +54,5 @@ class Partida:
 
     def print_estado(self):
         print('monte', self.baralho.get_str_monte())
-        print('grupo', self.grupo.str_estado())
+        print('grupo mãos', self.grupo.str_maos())
         print('mesa', repr(self.mesa))

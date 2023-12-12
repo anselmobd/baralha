@@ -61,8 +61,7 @@ class Grupo:
                 return True
         return False
 
-
-    def str_estado(self):
+    def str_maos(self):
         return {
             self.jogadores[jogador].nome: self.jogadores[jogador].mao
             for jogador in self.jogadores
