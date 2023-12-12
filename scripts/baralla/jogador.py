@@ -29,7 +29,7 @@ class Jogador:
 
     def set_tipo_jogo(self, tipo_jogo):
         self.tipo_jogo = tipo_jogo
-        self.caracteristicas = TipoJogo(tipo_jogo).caracteristicas
+        self.caracteristicas = TipoJogo(tipo_jogo).definicao
 
     def joga(self, mesa):
         """Aqui entrará a lógica de decisão do jogador"""

@@ -11,10 +11,10 @@ class Jogo:
         self.tipo_jogo = tipo_jogo
         self.grupo = grupo
 
-        self.caracteristicas = TipoJogo(tipo_jogo).caracteristicas
+        self.jogo_def = TipoJogo(tipo_jogo).definicao
 
     def iniciar(self):
         self.grupo.sorteia()
-        for idx_jogo in range(self.caracteristicas['jogo']['num_partidas']):
+        for _ in range(self.jogo_def['jogo']['num_partidas']):
             jogo = Partida(self.tipo_jogo, self.grupo)
             jogo.inicia()

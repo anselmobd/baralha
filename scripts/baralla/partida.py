@@ -13,8 +13,8 @@ class Partida:
         self.tipo_jogo = tipo_jogo
         self.grupo = grupo
 
-        self.caracteristicas = TipoJogo(tipo_jogo).caracteristicas
-        self.baralho = Baralho(self.caracteristicas['baralho'])
+        self.jogo_def = TipoJogo(tipo_jogo).definicao
+        self.baralho = Baralho(self.jogo_def['baralho'])
         self.mesa = Mesa()
 
     def inicia(self):
@@ -31,7 +31,7 @@ class Partida:
     def distribui(self):
         for _ in range(self.grupo.num_jogadores):
             jogador = self.grupo.get_jogador
-            for _ in range(self.caracteristicas['preparação da partida']['parâmetros']['num_cartas']):
+            for _ in range(self.jogo_def['preparação da partida']['parâmetros']['num_cartas']):
                 carta = self.baralho.pega_carta()
                 jogador.recebe_carta(carta)
             self.grupo.proximo()
@@ -49,7 +49,7 @@ class Partida:
 
     def regua_de_cartas_ganhadoras(self, carro, trumfo):
         result = []
-        regua_valor = self.caracteristicas['partida']['regua de valor dos números das cartas da mesa']
+        regua_valor = self.jogo_def['partida']['regua de valor dos números das cartas da mesa']
         for nf in regua_valor:
             result.append(Carta(naipe=carro, numero=nf))
         if carro != trumfo:

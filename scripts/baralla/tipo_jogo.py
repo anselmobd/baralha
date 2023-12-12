@@ -9,5 +9,5 @@ class TipoJogo(CustomTipoJogo):
         self.tipo = tipo if tipo else self.TESTE
 
     @property
-    def caracteristicas(self):
+    def definicao(self):
         return self._JOGOS[self.tipo]
