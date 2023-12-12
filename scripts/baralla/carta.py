@@ -15,3 +15,6 @@ class Carta:
 
     def __repr__(self) -> str:
         return repr(str(self))
+
+    def __eq__(self, outra) -> bool:
+        return self.numero == outra.numero and self.naipe == outra.naipe
