@@ -5,8 +5,11 @@ from baralla.tipo_baralho import TipoBaralho
 
 class CustomTipoJogo:
 
+    # IDs
     BRISCA = 'brisca'
     TESTE = 'teste'
+
+    # Definições dos jogos
     _JOGOS = {
         BRISCA: {
             'baralho': TipoBaralho.ESPANHOL,

@@ -5,9 +5,13 @@ from baralla.custom.tipo_jogo import CustomTipoJogo
 
 class TipoJogo(CustomTipoJogo):
 
-    def __init__(self, tipo=None) -> None:
-        self.tipo = tipo if tipo else self.TESTE
+    def __init__(self, id=None) -> None:
+        self._id = id if id else self.TESTE
+
+    @property
+    def id(self):
+        return self._id
 
     @property
     def definicao(self):
-        return self._JOGOS[self.tipo]
+        return self._JOGOS[self._id]
