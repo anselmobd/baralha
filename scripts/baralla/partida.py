@@ -19,7 +19,7 @@ class Partida:
     def inicia(self):
         self.prepara()
         self.ciclo()
-        print('grupo montes', self.grupo.str_montes())
+        self.finaliza()
 
     def prepara(self):
         self.baralho.embaralha()
@@ -48,7 +48,7 @@ class Partida:
             self.grupo.todos_jogam(self.mesa)
             self.print_mesa()
             vencedor : Jogador = self.tipo_jogo.define_vencedor_da_mao(self.mesa)
-            print('vencedor_nome', vencedor)
+            print('vencedor da mão', vencedor)
             vencedor.recolhe_mesa(self.mesa)
             self.grupo.define_proximo_jogador(vencedor)
             self.grupo.todos_compram(self.baralho)
@@ -59,3 +59,8 @@ class Partida:
 
     def print_mesa(self):
         print('mesa', repr(self.mesa))
+
+    def finaliza(self):
+        print('grupo montes', self.grupo.str_montes())
+        vencedor : Jogador = self.grupo.define_vencedor_da_partida()
+        print('vencedor da partida', vencedor)
