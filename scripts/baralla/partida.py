@@ -16,10 +16,11 @@ class Partida:
         self.baralho = Baralho(self.tipo_jogo.definicao['baralho'])
         self.mesa = Mesa()
 
-    def inicia(self):
+    def brinca(self):
         self.prepara()
         self.ciclo()
         self.finaliza()
+        return self.vencedor
 
     def prepara(self):
         self.grupo.prepara()
@@ -67,5 +68,5 @@ class Partida:
 
     def finaliza(self):
         print('grupo montes', self.grupo.str_montes())
-        vencedor : Jogador = self.grupo.define_vencedor_da_partida()
-        print('vencedor da partida', vencedor)
+        self.vencedor : Jogador = self.grupo.define_vencedor_da_partida()
+        print('vencedor da partida', self.vencedor)

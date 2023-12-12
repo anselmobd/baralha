@@ -16,9 +16,12 @@ class Jogo:
         self.tipo_jogo_id = self.tipo_jogo.id
         self.jogo_def = self.tipo_jogo.definicao
 
+        self.vencedor = None
+
     def iniciar(self):
         self.grupo.set_tipo_jogo(self.tipo_jogo)
         self.grupo.sorteia()
         for _ in range(self.jogo_def['jogo']['num_partidas']):
-            jogo = Partida(self.tipo_jogo, self.grupo)
-            jogo.inicia()
+            partida = Partida(self.tipo_jogo, self.grupo)
+            self.vencedor = partida.brinca()
+        print('vencedor do jogo', self.vencedor)
