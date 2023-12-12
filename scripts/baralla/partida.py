@@ -41,13 +41,16 @@ class Partida:
         self.mesa.set_trunfo(carta)
 
     def ciclo(self):
-        while self.grupo.tem_cartas:
+        i = 0
+        while self.grupo.tem_cartas and i < 3:
+            i += 1
             self.grupo.todos_jogam(self.mesa)
             vencedor : Jogador = self.tipo_jogo.define_vencedor_da_mao(self.mesa)
             self.print_estado()
             print('vencedor_nome', vencedor)
             vencedor.recolhe_mesa(self.mesa)
             self.grupo.define_jogador_da_vez(vencedor)
+            self.grupo.todos_compram(self.baralho)
 
     def print_estado(self):
         print('monte', self.baralho.get_str_monte())

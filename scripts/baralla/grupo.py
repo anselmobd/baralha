@@ -49,6 +49,11 @@ class Grupo:
             self.jogadores[self.idx_da_vez].joga(mesa)
             self.proximo()
 
+    def todos_compram(self, baralho):
+        for _ in self.jogadores:
+            carta = baralho.pega_carta()
+            self.jogadores[self.idx_da_vez].recebe_carta(carta)
+
     @property
     def tem_cartas(self):
         for _ in self.jogadores:
