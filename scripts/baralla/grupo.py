@@ -44,6 +44,14 @@ class Grupo:
             self.jogadores[self.idx_da_vez].joga(mesa)
             self.proximo()
 
+    @property
+    def tem_cartas(self):
+        for _ in self.jogadores:
+            if self.jogadores[self.idx_da_vez].tem_carta:
+                return True
+        return False
+
+
     def str_estado(self):
         return {
             self.jogadores[jogador].nome: self.jogadores[jogador].mao
