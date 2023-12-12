@@ -42,7 +42,7 @@ class Grupo:
 
     def set_tipo_jogo(self, tipo_jogo):
         for idx_jogador in self.jogadores:
-            self.jogadores[idx_jogador].set_tipo_jogo = tipo_jogo
+            self.jogadores[idx_jogador].set_tipo_jogo(tipo_jogo)
 
     def todos_jogam(self, mesa):
         for _ in self.jogadores:
@@ -64,5 +64,14 @@ class Grupo:
     def str_maos(self):
         return {
             self.jogadores[jogador].nome: self.jogadores[jogador].mao
+            for jogador in self.jogadores
+        }
+
+    def str_montes(self):
+        return {
+            self.jogadores[jogador].nome: (
+                self.jogadores[jogador].monte,
+                self.jogadores[jogador].valor_no_monte,
+            )
             for jogador in self.jogadores
         }
