@@ -2,6 +2,7 @@ from pprint import pprint
 
 from baralla.baralho import Baralho
 from baralla.grupo import Grupo
+from baralla.jogador import Jogador
 from baralla.mesa import Mesa
 from baralla.tipo_jogo import TipoJogo
 
@@ -45,6 +46,8 @@ class Partida:
             vencedor : Jogador = self.tipo_jogo.define_vencedor_da_mao(self.mesa)
             self.print_estado()
             print('vencedor_nome', vencedor)
+            vencedor.recolhe_mesa(self.mesa)
+            self.grupo.define_jogador_da_vez(vencedor)
 
     def print_estado(self):
         print('monte', self.baralho.get_str_monte())

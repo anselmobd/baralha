@@ -37,4 +37,8 @@ class Jogador:
 
     def joga(self, mesa):
         """Aqui entrará a lógica de decisão do jogador"""
-        mesa.coloca_carta(self.mao.pop(), self)
+
+    def recolhe_mesa(self, mesa) -> None:
+        while mesa.cartas:
+            carta_jogador = mesa.cartas.pop()
+            self.monte.append(carta_jogador['carta'])
