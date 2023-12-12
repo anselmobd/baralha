@@ -41,9 +41,7 @@ class Partida:
         self.mesa.set_trunfo(carta)
 
     def ciclo(self):
-        i = 0
-        while self.grupo.tem_cartas and i < 3:
-            i += 1
+        while self.grupo.tem_cartas:
             self.print_monte_maos()
             self.grupo.todos_jogam(self.mesa)
             self.print_mesa()
