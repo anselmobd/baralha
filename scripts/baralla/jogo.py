@@ -21,7 +21,14 @@ class Jogo:
     def iniciar(self):
         self.grupo.inicia_tipo_jogo(self.tipo_jogo)
         self.grupo.sorteia()
-        for _ in range(self.jogo_def['jogo']['num_partidas']):
+        partidas_vencedor = self.jogo_def['jogo']['condição de término']['jogador ganha n partidas']
+
+        while max(*self.grupo.placar().values()) < partidas_vencedor:
             partida = Partida(self.tipo_jogo, self.grupo)
             self.vencedor = partida.brinca()
-        print('vencedor do jogo', self.vencedor)
+            self.vencedor.partidas += 1
+            placar = self.grupo.placar()
+            print('placar', placar)
+
+        placar_revertido = {v: k for k, v in placar.items()}
+        print('vencedor do jogo', placar_revertido[partidas_vencedor])
