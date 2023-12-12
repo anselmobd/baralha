@@ -1,9 +1,10 @@
 from pprint import pprint
 
-from baralla.tipo_jogo import TipoJogo
 from baralla.baralho import Baralho
+from baralla.carta import Carta
 from baralla.grupo import Grupo
 from baralla.mesa import Mesa
+from baralla.tipo_jogo import TipoJogo
 
 
 class Partida:
@@ -19,7 +20,6 @@ class Partida:
     def inicia(self):
         self.prepara()
         self.ciclo()
-        self.print_estado()
 
     def prepara(self):
         self.grupo.set_tipo_jogo(self.tipo_jogo)
@@ -43,6 +43,36 @@ class Partida:
 
     def ciclo(self):
         self.grupo.todos_jogam(self.mesa)
+        vencedor_nome = self.define_vencedor()
+        self.print_estado()
+        print('vencedor_nome', vencedor_nome)
+
+    def regua_de_cartas_ganhadoras(self, carro, trumfo):
+        result = []
+        regua_valor = self.caracteristicas['partida']['regua de valor dos números das cartas da mesa']
+        for nf in regua_valor:
+            result.append(Carta(naipe=carro, numero=nf))
+        if carro != trumfo:
+            for nf in regua_valor:
+                result.append(Carta(naipe=trumfo, numero=nf))
+        return result
+
+    def define_vencedor(self):
+        regua = self.regua_de_cartas_ganhadoras(
+            self.mesa.cartas[0]['carta'].naipe,
+            self.mesa.trunfo.naipe,
+        )
+        vencedor_pontos = -1
+        vencedor_nome = ''
+        for carta_jogador in self.mesa.cartas:
+            try:
+                valor = regua.index(carta_jogador['carta'])
+            except ValueError:
+                valor = -1
+            if vencedor_pontos < valor:
+                vencedor_pontos = valor
+                vencedor_nome = carta_jogador['jogador']
+        return vencedor_nome
 
     def print_estado(self):
         print('monte', self.baralho.get_str_monte())
