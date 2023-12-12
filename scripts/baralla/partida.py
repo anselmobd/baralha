@@ -1,7 +1,6 @@
 from pprint import pprint
 
 from baralla.baralho import Baralho
-from baralla.carta import Carta
 from baralla.grupo import Grupo
 from baralla.mesa import Mesa
 from baralla.tipo_jogo import TipoJogo
@@ -41,10 +40,11 @@ class Partida:
         self.mesa.set_trunfo(carta)
 
     def ciclo(self):
-        self.grupo.todos_jogam(self.mesa)
-        vencedor_nome = self.tipo_jogo.define_vencedor_da_mao(self.mesa)
-        self.print_estado()
-        print('vencedor_nome', vencedor_nome)
+        while self.grupo.tem_cartas:
+            self.grupo.todos_jogam(self.mesa)
+            vencedor_nome = self.tipo_jogo.define_vencedor_da_mao(self.mesa)
+            self.print_estado()
+            print('vencedor_nome', vencedor_nome)
 
     def print_estado(self):
         print('monte', self.baralho.get_str_monte())
