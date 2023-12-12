@@ -52,7 +52,8 @@ class Grupo:
     def todos_compram(self, baralho):
         for _ in self.jogadores:
             carta = baralho.pega_carta()
-            self.jogadores[self.idx_da_vez].recebe_carta(carta)
+            if carta:
+                self.jogadores[self.idx_da_vez].recebe_carta(carta)
             self.proximo()
 
     @property
