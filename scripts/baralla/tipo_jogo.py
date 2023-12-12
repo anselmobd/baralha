@@ -7,7 +7,8 @@ from baralla.custom.tipo_jogo import CustomTipoJogo
 class TipoJogo(CustomTipoJogo):
 
     def __init__(self, id=None) -> None:
-        self._id = id if id else self.TESTE
+        super().__init__()
+        self._id = id if id else self.default
 
     @property
     def id(self):
@@ -15,7 +16,7 @@ class TipoJogo(CustomTipoJogo):
 
     @property
     def definicao(self):
-        return self._JOGOS[self._id]
+        return self.jogos[self.id]
 
     def regua_de_cartas_ganhadoras_da_mao(self, carro, trumfo):
         result = []
