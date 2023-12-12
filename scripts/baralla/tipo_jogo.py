@@ -34,7 +34,7 @@ class TipoJogo(CustomTipoJogo):
             mesa.trunfo.naipe,
         )
         vencedor_pontos = -1
-        vencedor_nome = ''
+        vencedor = ''
         for carta_jogador in mesa.cartas:
             try:
                 valor = regua.index(carta_jogador['carta'])
@@ -42,5 +42,5 @@ class TipoJogo(CustomTipoJogo):
                 valor = -1
             if vencedor_pontos < valor:
                 vencedor_pontos = valor
-                vencedor_nome = carta_jogador['jogador']
-        return vencedor_nome
+                vencedor = carta_jogador['jogador']
+        return vencedor

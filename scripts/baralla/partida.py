@@ -42,9 +42,9 @@ class Partida:
     def ciclo(self):
         while self.grupo.tem_cartas:
             self.grupo.todos_jogam(self.mesa)
-            vencedor_nome = self.tipo_jogo.define_vencedor_da_mao(self.mesa)
+            vencedor : Jogador = self.tipo_jogo.define_vencedor_da_mao(self.mesa)
             self.print_estado()
-            print('vencedor_nome', vencedor_nome)
+            print('vencedor_nome', vencedor)
 
     def print_estado(self):
         print('monte', self.baralho.get_str_monte())
