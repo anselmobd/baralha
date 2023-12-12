@@ -44,15 +44,18 @@ class Partida:
         i = 0
         while self.grupo.tem_cartas and i < 3:
             i += 1
+            self.print_monte_maos()
             self.grupo.todos_jogam(self.mesa)
+            self.print_mesa()
             vencedor : Jogador = self.tipo_jogo.define_vencedor_da_mao(self.mesa)
-            self.print_estado()
             print('vencedor_nome', vencedor)
             vencedor.recolhe_mesa(self.mesa)
-            self.grupo.define_jogador_da_vez(vencedor)
+            self.grupo.define_proximo_jogador(vencedor)
             self.grupo.todos_compram(self.baralho)
 
-    def print_estado(self):
+    def print_monte_maos(self):
         print('monte', self.baralho.get_str_monte())
         print('grupo mãos', self.grupo.str_maos())
+
+    def print_mesa(self):
         print('mesa', repr(self.mesa))
