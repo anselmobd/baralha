@@ -77,7 +77,7 @@ class Grupo:
             for jogador in self.jogadores
         }
 
-    def define_vencedor_da_partida(self, mesa):
+    def define_vencedor_da_partida(self):
         vencedor_pontos = -1
         vencedor = None
         for jogador in self.jogadores:
