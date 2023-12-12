@@ -11,8 +11,9 @@ class Jogador:
 
         self._mao = []
         self.monte = []
+        self.valor_no_monte = 0
         self.tipo_jogo = None
-        self.caracteristicas = None
+        self.jogo_def = None
 
     def __str__(self) -> str:
         return self.nome
@@ -33,7 +34,7 @@ class Jogador:
 
     def set_tipo_jogo(self, tipo_jogo):
         self.tipo_jogo = tipo_jogo
-        self.caracteristicas = TipoJogo(tipo_jogo).definicao
+        self.jogo_def = self.tipo_jogo.definicao
 
     def joga(self, mesa):
         """Aqui entrará a lógica de decisão do jogador"""
@@ -41,6 +42,8 @@ class Jogador:
         mesa.coloca_carta(self.mao.pop(carta_idx), self)
 
     def recolhe_mesa(self, mesa) -> None:
+        pontos = self.jogo_def['pontos no jogo']['pontos das cartas']
         while mesa.cartas:
             carta_jogador = mesa.cartas.pop()
             self.monte.append(carta_jogador['carta'])
+            self.valor_no_monte += pontos.get(carta_jogador['carta'].numero, 0)
