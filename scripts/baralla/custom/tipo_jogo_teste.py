@@ -9,7 +9,10 @@ class TipoJogoTeste:
         'baralho': TipoBaralho.ESPANHOL,
         'número de jogadores': 2,
         'jogo': {
-            'num_partidas': 1,
+            'condição de término': {
+                'num_partidas': 1,
+                'jogador ganha n partidas': None,
+            }            
         },
         'sentido jogadores': 'anti-horário',
         'carteador': 'externo',

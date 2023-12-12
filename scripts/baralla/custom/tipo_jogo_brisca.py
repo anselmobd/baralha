@@ -9,7 +9,10 @@ class TipoJogoBrisca:
         'baralho': TipoBaralho.ESPANHOL,
         'número de jogadores': 2,  # 3 e 4 é possível, mas tem pequenas alterações nas regras
         'jogo': {
-            'num_partidas': 1,  # 4,
+            'condição de término': {
+                'num_partidas': None,
+                'jogador ganha n partidas': 4,
+            }            
         },
         'sentido jogadores': 'anti-horário',
         'primeiro carteador': 'jogador sorteado',
