@@ -18,7 +18,7 @@ class Jogador:
         return self.nome
 
     def __repr__(self) -> str:
-        return repr(self.nome)
+        return f"Jogador({self.nome})"
 
     def recebe_carta(self, carta):
         self._mao.append(carta)
@@ -26,6 +26,10 @@ class Jogador:
     @property
     def mao(self):
         return self._mao
+
+    @property
+    def tem_carta(self):
+        return len(self._mao) != 0
 
     def set_tipo_jogo(self, tipo_jogo):
         self.tipo_jogo = tipo_jogo

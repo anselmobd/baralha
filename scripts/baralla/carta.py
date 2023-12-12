@@ -14,7 +14,7 @@ class Carta:
         return f"{self.numero}{self.naipe}"
 
     def __repr__(self) -> str:
-        return repr(str(self))
+        return f"Carta({self})"
 
     def __eq__(self, outra) -> bool:
         return self.numero == outra.numero and self.naipe == outra.naipe
