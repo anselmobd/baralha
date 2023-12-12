@@ -35,7 +35,7 @@ class Grupo:
     def proximo(self):
         self._idx_da_vez = (self._idx_da_vez + 1) % self.num_jogadores
 
-    def define_jogador_da_vez(self, jogador):
+    def define_proximo_jogador(self, jogador):
         for idx_jogador in self.jogadores:
             if self.jogadores[idx_jogador] == jogador:
                 self._idx_da_vez = idx_jogador
@@ -53,6 +53,7 @@ class Grupo:
         for _ in self.jogadores:
             carta = baralho.pega_carta()
             self.jogadores[self.idx_da_vez].recebe_carta(carta)
+            self.proximo()
 
     @property
     def tem_cartas(self):
