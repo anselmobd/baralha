@@ -46,7 +46,7 @@ class Baralho:
         self.descarte.append(carta)
         return carta
 
-    def coloca_carta_embaixo_monte(self, carta):
+    def carta_volta_para_baixo_do_monte(self, carta):
         self.descarte = [
             fica for fica in self.descarte
             if fica != carta

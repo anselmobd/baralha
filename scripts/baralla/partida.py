@@ -37,7 +37,7 @@ class Partida:
 
     def define_trunfo(self):
         carta = self.baralho.pega_carta()
-        self.baralho.coloca_carta_embaixo_monte(carta)
+        self.baralho.carta_volta_para_baixo_do_monte(carta)
         self.mesa.set_trunfo(carta)
 
     def ciclo(self):
