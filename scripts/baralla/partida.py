@@ -19,9 +19,9 @@ class Partida:
     def inicia(self):
         self.prepara()
         self.ciclo()
+        print('grupo montes', self.grupo.str_montes())
 
     def prepara(self):
-        self.grupo.set_tipo_jogo(self.tipo_jogo.id)
         self.baralho.embaralha()
         self.distribui()
         self.define_trunfo()
