@@ -25,7 +25,7 @@ class Partida:
         self.baralho.embaralha()
         self.distribui()
         self.define_trunfo()
-        self.mesa.set_baralho(self.baralho)
+        self.print_preparado()
 
     def distribui(self):
         for _ in range(self.grupo.num_jogadores):
@@ -52,6 +52,12 @@ class Partida:
             vencedor.recolhe_mesa(self.mesa)
             self.grupo.define_proximo_jogador(vencedor)
             self.grupo.todos_compram(self.baralho)
+
+    def print_preparado(self):
+        pprint({
+            # 'trunfo': self.trunfo,
+            'baralho': self.baralho,
+        })
 
     def print_monte_maos(self):
         print('monte', self.baralho.get_str_monte())
