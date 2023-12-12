@@ -47,6 +47,21 @@ class TipoJogoTeste:
             'quem tiver mais cartas no jogo, ganha o 1 jogo na partida',
             'se todos os jogadores empatarem, ninguem ganha 1 jogo',
         ),
+        'pontos no jogo': {
+            'pontos das cartas': {
+                '2': 1,
+                '3': 2,
+                '4': 3,
+                '5': 4,
+                '6': 5,
+                '7': 6,
+                's': 7,
+                'c': 8,
+                'r': 9,
+                'a': 10,
+            },
+            'pontos por naipe': 'não varia',
+        },
         'pontuação na partida': (
             'ganha a partida o jogo',
         ),

@@ -9,7 +9,7 @@ class TipoJogoBrisca:
         'baralho': TipoBaralho.ESPANHOL,
         'número de jogadores': 2,  # 3 e 4 é possível, mas tem pequenas alterações nas regras
         'jogo': {
-            'num_partidas': 4,
+            'num_partidas': 1,  # 4,
         },
         'sentido jogadores': 'anti-horário',
         'primeiro carteador': 'jogador sorteado',
@@ -53,11 +53,11 @@ class TipoJogoBrisca:
         ),
         'pontos no jogo': {
             'pontos das cartas': {
-                'ás': 11,
+                'a': 11,
                 '3': 10,
-                'rei': 4,
-                'cavalo': 3,
-                'sota': 2,
+                'r': 4,
+                'c': 3,
+                's': 2,
             },
             'pontos por naipe': 'não varia',
             'total de pontos no baralho': 120,
