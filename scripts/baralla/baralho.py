@@ -42,8 +42,11 @@ class Baralho:
         ]
     
     def pega_carta(self):
-        carta = self.monte.pop(0)
-        self.descarte.append(carta)
+        if self.monte:
+            carta = self.monte.pop(0)
+            self.descarte.append(carta)
+        else:
+            carta = None
         return carta
 
     def carta_volta_para_baixo_do_monte(self, carta):
