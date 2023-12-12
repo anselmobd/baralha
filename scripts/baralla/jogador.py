@@ -11,6 +11,7 @@ class Jogador:
 
         self.tipo_jogo = None
         self.jogo_def = None
+        self.partidas = 0
         self.prepara()
 
     def __str__(self) -> str:
@@ -35,9 +36,10 @@ class Jogador:
     def tem_carta(self):
         return len(self._mao) != 0
 
-    def set_tipo_jogo(self, tipo_jogo):
+    def inicia_tipo_jogo(self, tipo_jogo):
         self.tipo_jogo = tipo_jogo
         self.jogo_def = self.tipo_jogo.definicao
+        self.partidas = 0
 
     def joga(self, mesa):
         """Aqui entrará a lógica de decisão do jogador"""

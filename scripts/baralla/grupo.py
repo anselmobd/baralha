@@ -40,7 +40,7 @@ class Grupo:
             if self.jogadores[idx_jogador] == jogador:
                 self._idx_da_vez = idx_jogador
 
-    def set_tipo_jogo(self, tipo_jogo):
+    def inicia_tipo_jogo(self, tipo_jogo):
         for idx_jogador in self.jogadores:
             self.jogadores[idx_jogador].set_tipo_jogo(tipo_jogo)
 
