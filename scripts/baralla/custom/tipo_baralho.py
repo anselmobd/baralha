@@ -34,15 +34,15 @@ class CustomTipoBaralho:
         },
         ESPANHOL:
         {
-            'A': 'ás',
+            'a': 'ás',
             '2': '2',
             '3': '3',
             '4': '4',
             '5': '5',
             '6': '6',
             '7': '7',
-            'S': 'sota',
-            'C': 'cavalo',
-            'R': 'rei',
+            's': 'sota',
+            'c': 'cavalo',
+            'r': 'rei',
         },
     }
