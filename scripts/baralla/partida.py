@@ -55,8 +55,8 @@ class Partida:
 
     def print_preparado(self):
         pprint({
-            # 'trunfo': self.trunfo,
             'baralho': self.baralho,
+            'trunfo': self.mesa.trunfo,
         })
 
     def print_monte_maos(self):
