@@ -22,6 +22,7 @@ class Partida:
         self.finaliza()
 
     def prepara(self):
+        self.grupo.prepara()
         self.baralho.embaralha()
         self.distribui()
         self.define_trunfo()

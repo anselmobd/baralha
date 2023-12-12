@@ -9,17 +9,20 @@ class Jogador:
     def __init__(self, nome) -> None:
         self.nome = nome
 
-        self._mao = []
-        self.monte = []
-        self.valor_no_monte = 0
         self.tipo_jogo = None
         self.jogo_def = None
+        self.prepara()
 
     def __str__(self) -> str:
         return self.nome
 
     def __repr__(self) -> str:
         return f"Jogador({self.nome})"
+
+    def prepara(self):
+        self._mao = []
+        self.monte = []
+        self.valor_no_monte = 0
 
     def recebe_carta(self, carta):
         self._mao.append(carta)

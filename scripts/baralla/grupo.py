@@ -78,6 +78,10 @@ class Grupo:
             for jogador in self.jogadores
         }
 
+    def prepara(self):
+        for jogador in self.jogadores:
+            self.jogadores[jogador].prepara()
+
     def define_vencedor_da_partida(self):
         vencedor_pontos = -1
         vencedor = None
