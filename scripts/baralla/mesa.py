@@ -27,7 +27,4 @@ class Mesa:
         ])
 
     def __repr__(self) -> str:
-        return pformat({
-            'trunfo': self.trunfo,
-            'cartas': self.cartas,
-        })
+        return pformat(self.cartas)
