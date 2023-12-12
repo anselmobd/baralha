@@ -42,7 +42,13 @@ class Grupo:
 
     def inicia_tipo_jogo(self, tipo_jogo):
         for idx_jogador in self.jogadores:
-            self.jogadores[idx_jogador].set_tipo_jogo(tipo_jogo)
+            self.jogadores[idx_jogador].inicia_tipo_jogo(tipo_jogo)
+
+    def placar(self):
+        result = {}
+        for idx_jogador in self.jogadores:
+            result[self.jogadores[idx_jogador]] = self.jogadores[idx_jogador].partidas 
+        return result
 
     def todos_jogam(self, mesa):
         for _ in self.jogadores:
