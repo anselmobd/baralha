@@ -43,9 +43,9 @@ class CustomTipoJogo:
                 'avaliando o vencedor da mão': (
                     'o naipe da primeira carta colocada na mesa em cada mão é o carro',
                     'o naipe do carro ganha de todos os outros naipes, exceto do trunfo, que ganha de todos',
-                    'sendo do mesmo naipe, as cartas tem uma ordem crescente de valor que define o ganhador da mão',
+                    'sendo do mesmo naipe, as cartas da mesa tem uma ordem crescente de valor que define o ganhador da mão',
                 ),
-                'ordem crescente de valor das cartas na mão': (2, 3, 4, 5, 6, 7, 's', 'c', 'r', 3, 'a'),
+                'regua de valor dos números das cartas da mesa': ('2', '3', '4', '5', '6', '7', 's', 'c', 'r', '3', 'a'),
                 'fim do ciclo': 'quando acabam as cartas nas mãos dos jogadores',
             },
             'finalização do jogo': (
@@ -104,7 +104,7 @@ class CustomTipoJogo:
                     'o naipe do carro ganha de todos os outros naipes',
                     'sendo do mesmo naipe, as cartas tem uma ordem crescente de valor que define o ganhador da mão',
                 ),
-                'ordem crescente de valor das cartas na mão': (2, 3, 4, 5, 6, 7, 's', 'c', 'r', 3, 'a'),
+                'regua de valor dos números das cartas da mesa': ('2', '3', '4', '5', '6', '7', 's', 'c', 'r', '3', 'a'),
                 'fim do ciclo': 'quando acabam as cartas nas mãos dos jogadores',
             },
             'finalização do jogo': (
