@@ -35,7 +35,7 @@ Performance:
 - contra 0.10.1: 82,6% de vitórias
 - contra si próprio: 50,3% de vitórias
 
-Resultados equivalentes. Então sempre a comparação com a abordagem aleatória será contra a lógica 0.10.1.
+Os resultados na comparação com os aleatórios são equivalentes. Então, de agora em diante, a comparação com a abordagem aleatória será contra a lógica 0.10.1.
 
 ### Fechada Versão 0.11.1
 
@@ -48,7 +48,27 @@ Performance:
 - contra 0.11.0: 72,7% de vitórias
 - contra si próprio: 53,5% de vitórias
 
-Apresenta melhora relavante com relação às versões anteriores e coerência contra si.
+Apresenta melhora relevante com relação às versões anteriores e coerência contra si.
+
+### Fechada Versão 0.11.2
+
+Heurística:
+- Como primeiro: escolhe carta de menor valor, não trunfo, se possível
+- Como segundo:
+    - Se a carta da mesa é um trunfo, joga como se fosse o primeiro
+    - Senão,
+        - Escolhe carta maior que a da mesa, se tiver
+        - Senão tiver,
+            - Se a carta vale pontos, escolhe carta trunfo de menor valor, se possível
+            - Senão, joga como se fosse o primeiro
+
+Performance:
+- contra 0.10.1: 99,1% de vitórias
+- contra 0.11.0: 85,5% de vitórias
+- contra 0.11.1: 51,0% de vitórias
+- contra si próprio: 52,1% de vitórias
+
+Apesar de empatar com a última versão, apresenta melhora relevante com relação às versões anteriores à última.
 
 ## Próximos passos
 
