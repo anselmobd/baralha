@@ -59,6 +59,7 @@ class Partida:
         pprint({
             'baralho': self.baralho,
             'trunfo': self.mesa.trunfo,
+            'grupo': self.grupo,
         })
 
     def print_monte_maos(self):
