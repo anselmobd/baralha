@@ -46,7 +46,7 @@ class Logica:
         Como segundo: escolhe carta maior que a da mesa, se tiver, senão sorteia
         """
         if mesa.cartas:
-            idx = self.minha_carta_melhor_que_a_da_mesa(self, mesa, mao)
+            idx = self.minha_carta_melhor_que_a_da_mesa(mesa, mao)
             if idx > -1:
                 return idx
         return self.v0_10_0(mesa, mao)
