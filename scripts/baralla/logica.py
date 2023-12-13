@@ -53,7 +53,14 @@ class Logica:
                 return idx
         return self.v0_10_0(mesa, mao)
 
-    def minha_carta_de_menor_valor(self, mesa, mao, pode_trunfo=True):
+    def minha_carta_de_menor_valor(self, mesa, mao, sobre_trunfo=0):
+        """
+        Busca na mão a carta de menor valor com a seguinte condição com relação ao trunfo
+        - sobre_trunfo == 1: a carta tem que ser trunfo
+        - sobre_trunfo == 0: não se importa com naipe
+        - sobre_trunfo == -1: a carta não pode ser trunfo
+        Caso não encopntre o que procura, procura novamente sem se importar com o naipe
+        """
         regua_valor = self.jogo_def['partida']['regua de valor dos números das cartas da mesa']
         trunfo_naipe = mesa.trunfo.naipe
         carta_idx = -1
@@ -61,11 +68,17 @@ class Logica:
         for idx, carta in enumerate(mao):
             carta_valor = regua_valor.index(carta.numero)
             if (
-                (pode_trunfo or carta.naipe != trunfo_naipe) and
+                (
+                    sobre_trunfo == 0 or
+                    (sobre_trunfo == -1 and carta.naipe != trunfo_naipe) or
+                    (sobre_trunfo == 1 and carta.naipe == trunfo_naipe)
+                ) and
                 carta_valor < carta_menor_valor
             ):
                 carta_menor_valor = carta_valor
                 carta_idx = idx
+        if carta_idx == -1 and sobre_trunfo != 0:
+            carta_idx = self.minha_carta_de_menor_valor(mesa, mao, sobre_trunfo=0)
         return carta_idx
 
     def v0_11_1(self, mesa, mao):
