@@ -4,7 +4,8 @@ from random import randint
 
 class Logica:
 
-    def __init__(self, versao) -> None:
+    def __init__(self, jogo_def, versao) -> None:
+        self.jogo_def = jogo_def
         self.versao = versao
         self.VERSOES = {
             '0.10.0': self.v0_10_0,
