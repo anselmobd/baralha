@@ -50,3 +50,14 @@ class Logica:
             if idx > -1:
                 return idx
         return self.v0_10_0(mesa, mao)
+
+    def minha_carta_de_menor_valor(self, mesa, mao):
+        regua_valor = self.jogo_def['partida']['regua de valor dos números das cartas da mesa']
+        carta_idx = -1
+        carta_menor_valor = 99
+        for idx, carta in enumerate(mao):
+            carta_valor = regua_valor.index(carta.numero)
+            if carta_valor < carta_menor_valor:
+                carta_menor_valor = carta_valor
+                carta_idx = idx
+        return carta_idx
