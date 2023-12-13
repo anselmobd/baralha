@@ -8,9 +8,7 @@ class Jogador:
 
     def __init__(self, nome, logica='0.10.0') -> None:
         self.nome = nome
-
         self.logica = logica
-        self.logica_executa = Logica(logica).executa
 
         self.tipo_jogo = None
         self.jogo_def = None
@@ -43,6 +41,7 @@ class Jogador:
         self.tipo_jogo = tipo_jogo
         self.jogo_def = self.tipo_jogo.definicao
         self.partidas = 0
+        self.logica_executa = Logica(self.jogo_def, self.logica).executa
 
     def joga(self, mesa):
         """Aqui entrará a lógica de decisão do jogador"""
