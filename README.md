@@ -3,3 +3,61 @@
 (Baralla em galego da Galícia, na Espanha, significa baralho da cartas.)
 
 O objetivo deste projeto é reunir desenvolvimentos e testes de ideias de códigos fonte que sirvam de base para desenvolvimento de jogos de cartas.
+
+### Fechada Versão 0.1 - Executar jogo
+
+2023-12-13
+
+Até aqui foram desenvolvidas uma coleção de classes para simular um jogo de cartas. Está inicialmente pensado para atender a vários jogos, mas esse pré-requisito ainda está bem flexível.
+
+As classes que descrevem os jogos ainda são altamente voltadas para informação, porém alguns parâmetros já saem de dados encontrados nelas.
+
+Ao executar teste.py, que testa toda a estrutura, um jogo de brisca é jogado entre 2 jogadores, até um dos jogadores ganhar quatro partidas, sendo assim o vencedor do jogo.
+
+A única regra da Brisca não atendida é a de uma pontuação alta da partida valer por duas partidas.
+
+Diversos outputs de estados parciais são feitos pelo script para verificarmos o funcionamento.
+
+A lógica de jogo da classe jogador é, até aqui, apenas a escolha aleatória de uma das cartas da mão.
+
+Executando 10 mil vezes um dos jogadores ganhou 51,87%, ficando perto do esperado 50%.
+
+## Próximos passos
+
+Próximo objetivo principal é apenas incluir inteligência na lógica de jogo.
+
+### Versão 0.11.x
+
+Criar algumas regras bem básicas, utilizando apenas "if"s.
+
+Obs. válidas para 0.2y:
+- 0.2y.x - O número indicado no "x" será a versão a lógica desenvolvida com técnica semelhante à inicial (0.2y.1).
+- Uma nova lógica sempre enfrentará as lógicas anteriores para medir a performance.
+
+### Versão 0.12.x
+
+Será iniciado o uso de IA na lógica.
+
+Provavelmente a primeira versão utilizará aprendizado por reforço.
+
+### Versão 0.13.x
+
+Provável utilização de deep learning. A decidir.
+
+### Versão 0.20.x
+
+Alguma interface simples para jogar com humanos.
+
+O histórico de todos os jogos contra humanos (ou entre humanos, quando houver) será guardado.
+
+### Versão 0.21.x
+
+Revisão completa da estrutura de classes, objetivando ser mais genérica
+
+### Versão 0.2y.x
+
+Variações no "y" alternarão entre melhorias de inteligência, interface humana e estrutura de código.
+
+### Versão 0.30.x
+
+Abrir alguma interface para jogo via web.
