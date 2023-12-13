@@ -24,36 +24,29 @@ class Logica:
         """Pega a primeira carta recebida"""
         return 0
 
+    def minha_carta_melhor_que_a_da_mesa(self, mesa, mao):
+        regua_valor = self.jogo_def['partida']['regua de valor dos números das cartas da mesa']
+        mesa_naipe = mesa.cartas[0]['carta'].naipe
+        mesa_numero = mesa.cartas[0]['carta'].numero
+        mesa_valor = regua_valor.index(mesa_numero)
+        carta_idx = -1
+        carta_melhor_valor = -1
+        for idx, carta in enumerate(mao):
+            if carta.naipe == mesa_naipe:
+                carta_valor = regua_valor.index(carta.numero)
+                if carta_valor > mesa_valor and carta_valor > carta_melhor_valor:
+                    carta_melhor_valor = carta_valor
+                    carta_idx = idx
+        return carta_idx
+
+
     def v0_11_0(self, mesa, mao):
         """
         Como primeiro: sorteia uma carta
         Como segundo: escolhe carta maior que a da mesa, se tiver, senão sorteia
         """
-        # print('v0_11_0')
-        pontos = self.jogo_def['pontos no jogo']['pontos das cartas']
-        regua_valor = self.jogo_def['partida']['regua de valor dos números das cartas da mesa']
         if mesa.cartas:
-            # pprint(mesa)
-            # pprint(mesa.cartas[0])
-            naipe = mesa.cartas[0]['carta'].naipe
-            numero = mesa.cartas[0]['carta'].numero
-            # print(numero, naipe)
-            # print(pontos.get(numero, 0))
-            # pprint(regua_valor)
-            valor_numero = regua_valor.index(numero)
-            # print(valor_numero)
-            # pprint(mao)
-            melhor_idx = -1
-            melhor_valor = -1
-            for idx, carta in enumerate(mao):
-                # print(carta.numero, carta.naipe)
-                if carta.naipe == naipe:
-                    carta_valor = regua_valor.index(carta.numero)
-                    if carta_valor > valor_numero and carta_valor > melhor_valor:
-                        melhor_valor = carta_valor
-                        melhor_idx = idx
-            # print('melhor_idx', melhor_idx, mao[melhor_idx])
-            if melhor_idx > -1:
-                return melhor_idx
-        # print('sem mesa')
+            idx = self.minha_carta_melhor_que_a_da_mesa(self, mesa, mao)
+            if idx > -1:
+                return idx
         return self.v0_10_0(mesa, mao)
