@@ -70,6 +70,29 @@ Performance:
 
 Apesar de empatar com a última versão, apresenta melhora relevante com relação às versões anteriores à última.
 
+### Fechada Versão 0.11.3
+
+Heurística:
+- Como primeiro: escolhe carta de menor valor, não trunfo, se possível
+- Como segundo:
+    - Se a carta da mesa é um trunfo
+        - Se a carta vale pontos, escolhe carta maior que a da mesa, se tiver
+        - Senão, joga como se fosse o primeiro
+    - Senão,
+        - Escolhe carta maior que a da mesa, se tiver
+        - Senão tiver,
+            - Se a carta vale pontos, escolhe carta trunfo de menor valor, se possível
+            - Senão, joga como se fosse o primeiro
+
+Performance:
+- contra 0.10.1: 99,5% de vitórias
+- contra 0.11.0: 92,7% de vitórias
+- contra 0.11.1: 66,2% de vitórias
+- contra 0.11.2: 51,4% de vitórias
+- contra si próprio: 55,4% de vitórias
+
+A pequena alteração com relação à ultima versão não é suficiente para mostrar superioridade a ela, porém, apresenta melhora relevante com relação às versões anteriores à última.
+
 ## Próximos passos
 
 Próximo objetivo principal é apenas incluir inteligência na lógica de jogo.
