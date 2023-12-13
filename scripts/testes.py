@@ -11,19 +11,19 @@ from baralla.tipo_jogo import TipoJogo
 
 
 def monta_grupo_de_2():
-    anselmo = Jogador('Anselmo')
-    filha = Jogador('Filha')
+    velha = Jogador('Velha')
+    nova = Jogador('Nova', '0.10.1')
 
     grupo = Grupo()
-    grupo.adiciona(anselmo)
-    grupo.adiciona(filha)
+    grupo.adiciona(velha)
+    grupo.adiciona(nova)
     return grupo
 
 
 def testa_jogo():
     grupo = monta_grupo_de_2()
-    partida = Jogo('brisca', grupo)
-    partida.iniciar()
+    jogo = Jogo('brisca', grupo)
+    jogo.iniciar()
 
 
 def main():
