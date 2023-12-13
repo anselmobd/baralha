@@ -30,8 +30,8 @@ Próximo objetivo principal é apenas incluir inteligência na lógica de jogo.
 
 Criar algumas regras bem básicas, utilizando apenas "if"s.
 
-Obs. válidas para 0.2y:
-- 0.2y.x - O número indicado no "x" será a versão a lógica desenvolvida com técnica semelhante à inicial (0.2y.1).
+Obs. válidas para 0.1y:
+- 0.1y.x - O número indicado no "x" será a versão a lógica desenvolvida com técnica semelhante à inicial (0.1y.1).
 - Uma nova lógica sempre enfrentará as lógicas anteriores para medir a performance.
 
 ### Versão 0.12.x
