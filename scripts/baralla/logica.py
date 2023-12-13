@@ -11,6 +11,7 @@ class Logica:
             '0.10.0': self.v0_10_0,
             '0.10.1': self.v0_10_1,
             '0.11.0': self.v0_11_0,
+            '0.11.1': self.v0_11_1,
         }
 
     def executa(self, mesa, mao):
@@ -61,3 +62,15 @@ class Logica:
                 carta_menor_valor = carta_valor
                 carta_idx = idx
         return carta_idx
+
+    def v0_11_1(self, mesa, mao):
+        """
+        Como primeiro: sorteia uma carta
+        Como segundo: escolhe carta maior que a da mesa, se tiver,
+            senão escolhe carta de menor valor
+        """
+        if mesa.cartas:
+            idx = self.minha_carta_melhor_que_a_da_mesa(mesa, mao)
+            if idx > -1:
+                return idx
+        return self.minha_carta_de_menor_valor(mesa, mao)
