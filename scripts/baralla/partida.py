@@ -25,14 +25,16 @@ class Partida:
     def prepara(self):
         self.grupo.prepara()
         self.baralho.embaralha()
-        self.distribui()
+        self.distribuicao_inicial()
         self.define_trunfo()
         self.print_preparado()
 
-    def distribui(self):
+    def distribuicao_inicial(self):
+        num_cartas : int = self.tipo_jogo.definicao[
+            'preparação da partida']['parâmetros']['num_cartas']
         for _ in range(self.grupo.num_jogadores):
             jogador = self.grupo.get_jogador
-            for _ in range(self.tipo_jogo.definicao['preparação da partida']['parâmetros']['num_cartas']):
+            for _ in range(num_cartas):
                 carta = self.baralho.pega_carta()
                 jogador.recebe_carta(carta)
             self.grupo.proximo()
