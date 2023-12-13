@@ -1,19 +1,15 @@
 import sys
 from pprint import pprint
-from random import seed, randint
+from random import seed
 
-from baralla.baralho import Baralho
 from baralla.grupo import Grupo
 from baralla.jogador import Jogador
 from baralla.jogo import Jogo
-from baralla.partida import Partida
-from baralla.tipo_baralho import TipoBaralho
-from baralla.tipo_jogo import TipoJogo
 
 
 def monta_grupo_de_2():
-    velha = Jogador('Velha', '0.10.1')
-    nova = Jogador('Nova', '0.11.0')
+    velha = Jogador('Velha', '0.11.1')
+    nova = Jogador('Nova', '0.11.1')
 
     grupo = Grupo()
     grupo.adiciona(velha)
@@ -29,7 +25,6 @@ def testa_jogo():
 
 def main():
     testa_jogo()
-
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
