@@ -65,7 +65,7 @@ class Logica:
 
     def v0_11_1(self, mesa, mao):
         """
-        Como primeiro: sorteia uma carta
+        Como primeiro: escolhe carta de menor valor
         Como segundo: escolhe carta maior que a da mesa, se tiver,
             senão escolhe carta de menor valor
         """

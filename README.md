@@ -40,7 +40,7 @@ Resultados equivalentes. Então sempre a comparação com a abordagem aleatória
 ### Fechada Versão 0.11.1
 
 Heurística:
-- Como primeiro jogador da mão: sorteia uma carta
+- Como primeiro jogador da mão: escolhe carta de menor valor
 - Como segundo: escolhe carta maior que a da mesa, se tiver, senão escolhe carta de menor valor
 
 Performance:
