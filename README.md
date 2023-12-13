@@ -24,6 +24,10 @@ Executando 10 mil vezes um dos jogadores ganhou 51,87%, ficando perto do esperad
 
 Criada lógica "0.10.1", em que o jogado pega sempre a carta que esta na mão há mais tempo. Isso, como a lógica anterior, também resulta em um jogo completamente aleatório, afinal as cartas são embaralhadas.
 
+---
+
+Objetivo principal das próximas versões é incluir inteligência na lógica de jogo do Jogador.
+
 ### Fechada Versão 0.11.0
 
 Heurística:
@@ -95,15 +99,9 @@ A pequena alteração com relação à ultima versão não é suficiente para mo
 
 ## Próximos passos
 
-Próximo objetivo principal é apenas incluir inteligência na lógica de jogo.
+### Ainda nas versões 0.11.x
 
-### Versão 0.11.x
-
-Criar algumas regras bem básicas, utilizando apenas "if"s.
-
-Obs. válidas para 0.1y:
-- 0.1y.x - O número indicado no "x" será a versão a lógica desenvolvida com técnica semelhante à inicial (0.1y.1).
-- Uma nova lógica sempre enfrentará as lógicas anteriores para medir a performance.
+Decidir de crio heurística que considere memória das cartas já jogadas.
 
 ### Versão 0.12.x
 
