@@ -1,3 +1,4 @@
+import sys
 from pprint import pprint
 from random import seed, randint
 
@@ -11,8 +12,8 @@ from baralla.tipo_jogo import TipoJogo
 
 
 def monta_grupo_de_2():
-    velha = Jogador('Velha')
-    nova = Jogador('Nova', '0.10.1')
+    velha = Jogador('Velha', '0.10.1')
+    nova = Jogador('Nova', '0.11.0')
 
     grupo = Grupo()
     grupo.adiciona(velha)
@@ -31,5 +32,8 @@ def main():
 
 
 if __name__ == '__main__':
-    # seed(42)
+    if len(sys.argv) > 1:
+        my_seed = int(sys.argv[1])
+        print('my_seed', my_seed)
+        seed(my_seed)
     main()
