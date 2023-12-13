@@ -1,13 +1,16 @@
 from pprint import pprint
 from random import randint
 
-from baralla.tipo_jogo import TipoJogo
+from baralla.logica import Logica
 
 
 class Jogador:
 
-    def __init__(self, nome) -> None:
+    def __init__(self, nome, logica='0.10.0') -> None:
         self.nome = nome
+
+        self.logica = logica
+        self.logica_executa = Logica(logica).executa
 
         self.tipo_jogo = None
         self.jogo_def = None
@@ -43,7 +46,7 @@ class Jogador:
 
     def joga(self, mesa):
         """Aqui entrará a lógica de decisão do jogador"""
-        carta_idx = randint(0, len(self.mao)-1)
+        carta_idx = self.logica_executa(mesa, self.mao)
         mesa.coloca_carta(self.mao.pop(carta_idx), self)
 
     def recolhe_mesa(self, mesa) -> None:
