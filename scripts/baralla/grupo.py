@@ -1,4 +1,4 @@
-from pprint import pprint
+from pprint import pprint, pformat
 from random import randint
 
 from baralla.jogador import Jogador
@@ -9,6 +9,12 @@ class Grupo:
     def __init__(self) -> None:
         self.jogadores : dict[int, Jogador] = {}
         self.idx_da_vez : int = 0
+
+    def __repr__(self) -> str:
+        return pformat({
+            self.jogadores[idx]: self.jogadores[idx].logica
+            for idx in self.jogadores
+        })
 
     @property
     def num_jogadores(self) -> int:
