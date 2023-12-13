@@ -33,8 +33,22 @@ Heurística:
 Performance:
 - contra 0.10.0: 84,2% de vitórias
 - contra 0.10.1: 82,6% de vitórias
+- contra si próprio: 50,3% de vitórias
 
 Resultados equivalentes. Então sempre a comparação com a abordagem aleatória será contra a lógica 0.10.1.
+
+### Fechada Versão 0.11.1
+
+Heurística:
+- Como primeiro jogador da mão: sorteia uma carta
+- Como segundo: escolhe carta maior que a da mesa, se tiver, senão escolhe carta de menor valor
+
+Performance:
+- contra 0.10.1: 94,3% de vitórias
+- contra 0.11.0: 72,7% de vitórias
+- contra si próprio: 53,5% de vitórias
+
+Apresenta melhora relavante com relação às versões anteriores e coerência contra si.
 
 ## Próximos passos
 
