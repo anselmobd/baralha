@@ -18,9 +18,23 @@ A única regra da Brisca não atendida é a de uma pontuação alta da partida v
 
 Diversos outputs de estados parciais são feitos pelo script para verificarmos o funcionamento.
 
-A lógica de jogo da classe jogador é, até aqui, apenas a escolha aleatória de uma das cartas da mão.
+A lógica de jogo da classe jogador é, até aqui, apenas a escolha aleatória de uma das cartas da mão. (lógica "0.10.0")
 
 Executando 10 mil vezes um dos jogadores ganhou 51,87%, ficando perto do esperado 50%.
+
+Criada lógica "0.10.1", em que o jogado pega sempre a carta que esta na mão há mais tempo. Isso, como a lógica anterior, também resulta em um jogo completamente aleatório, afinal as cartas são embaralhadas.
+
+### Fechada Versão 0.11.0
+
+Heurística:
+- Como primeiro jogador da mão: sorteia uma carta
+- Como segundo: escolhe carta maior que a da mesa, se tiver, senão sorteia
+
+Performance:
+- contra 0.10.0: 84,2% de vitórias
+- contra 0.10.1: 82,6% de vitórias
+
+Resultados equivalentes. Então sempre a comparação com a abordagem aleatória será contra a lógica 0.10.1.
 
 ## Próximos passos
 
