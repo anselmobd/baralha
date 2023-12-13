@@ -52,13 +52,17 @@ class Logica:
                 return idx
         return self.v0_10_0(mesa, mao)
 
-    def minha_carta_de_menor_valor(self, mesa, mao):
+    def minha_carta_de_menor_valor(self, mesa, mao, pode_trunfo=True):
         regua_valor = self.jogo_def['partida']['regua de valor dos números das cartas da mesa']
+        trunfo_naipe = mesa.trunfo.naipe
         carta_idx = -1
         carta_menor_valor = 99
         for idx, carta in enumerate(mao):
             carta_valor = regua_valor.index(carta.numero)
-            if carta_valor < carta_menor_valor:
+            if (
+                (pode_trunfo or carta.naipe != trunfo_naipe) and
+                carta_valor < carta_menor_valor
+            ):
                 carta_menor_valor = carta_valor
                 carta_idx = idx
         return carta_idx
