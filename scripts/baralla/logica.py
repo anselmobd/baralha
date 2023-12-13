@@ -96,14 +96,31 @@ class Logica:
     def v0_11_2(self, mesa, mao):
         """
         Como primeiro: escolhe carta de menor valor, não trunfo, se possível
-        Como segundo: escolhe carta maior que a da mesa, se tiver,
-            senão joga como se fosse o primeiro
+        Como segundo:
+            Se a carta da mesa é um trunfo, joga como se fosse o primeiro
+            Senão,
+                Escolhe carta maior que a da mesa, se tiver
+                Senão tiver,
+                    Se a carta vale pontos, escolhe carta trunfo de menor valor, se possível
+                    Senão, joga como se fosse o primeiro
         """
         if mesa.cartas:
-            idx = self.minha_carta_melhor_que_a_da_mesa(mesa, mao)
+            trunfo_naipe = mesa.trunfo.naipe
+            mesa_naipe = mesa.cartas[0]['carta'].naipe
+            arrastou = mesa_naipe == trunfo_naipe
+
+            pontos = self.jogo_def['pontos no jogo']['pontos das cartas']
+            mesa_numero = mesa.cartas[0]['carta'].numero
+            jogou_pontos = mesa_numero in pontos.keys()
+
+            if arrastou:
+                idx = self.minha_carta_de_menor_valor(mesa, mao, sobre_trunfo=-1)
+            else:
+                idx = self.minha_carta_melhor_que_a_da_mesa(mesa, mao)
+                if idx > -1:
+                    return idx
+                if jogou_pontos:
+                    idx = self.minha_carta_de_menor_valor(mesa, mao, sobre_trunfo=1)
             if idx > -1:
                 return idx
-        idx = self.minha_carta_de_menor_valor(mesa, mao, pode_trunfo=False)
-        if idx > -1:
-            return idx
-        return self.minha_carta_de_menor_valor(mesa, mao)
+        return self.minha_carta_de_menor_valor(mesa, mao, sobre_trunfo=-1)
