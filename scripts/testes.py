@@ -19,7 +19,7 @@ def monta_grupo_de_2():
 
 def testa_jogo():
     grupo = monta_grupo_de_2()
-    jogo = Jogo('brisca', grupo)
+    jogo = Jogo('brisca2n', grupo)
     jogo.iniciar()
 
 

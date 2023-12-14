@@ -14,6 +14,7 @@ class Logica:
             '0.11.1': self.v0_11_1,
             '0.11.2': self.v0_11_2,
             '0.11.3': self.v0_11_3,
+            '0.12.0.treino': self.v0_12_0_treino,
         }
 
     def executa(self, mesa, mao):
@@ -163,3 +164,6 @@ class Logica:
             if idx > -1:
                 return idx
         return self.minha_carta_de_menor_valor(mesa, mao, sobre_trunfo=-1)
+
+    def v0_12_0_treino(self, mesa, mao):
+        pass

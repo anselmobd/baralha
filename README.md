@@ -97,6 +97,22 @@ Performance:
 
 A pequena alteração com relação à ultima versão não é suficiente para mostrar superioridade a ela, porém, apresenta melhora relevante com relação às versões anteriores à última.
 
+### criada brisca com apena 2 naipes
+
+Performance dos lógica já criadas.
+
+|&#129047;contra&#129042;| 0.10.1 | 0.11.0 | 0.11.1 | 0.11.2 | 0.11.3 |
+|--------|--------|--------|--------|--------|--------|
+| 0.10.1 |  49,0% |        |        |        |        |
+| 0.11.0 |  67,5% |  44,7% |        |        |        |
+| 0.11.1 |  80,4% |  55,5% |  44,0% |        |        |
+| 0.11.2 |  72,0% |  42,3% |  30,9% |  48,5% |        |
+| 0.11.3 |  82,8% |  61,1% |  47,5% |  57,1% |  43,9% |
+
+Apesar de perderem qualidade nesse novo cenário, a lógica 0.11.3 ainda se apresenta como a o melhor.
+
+Contra esta será treinado o primeiro modelo de lógica de Jogador com IA.
+
 ## Próximos passos
 
 ### Ainda nas versões 0.11.x
