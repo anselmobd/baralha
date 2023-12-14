@@ -1,3 +1,4 @@
+import argparse
 import sys
 from pprint import pprint
 from random import seed
@@ -26,9 +27,21 @@ def testa_jogo():
 def main():
     testa_jogo()
 
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description=f"Executa Jogo",
+    )
+    parser.add_argument(
+        '-s',
+        '--seed',
+        help="Sementa da aleatoriedade",
+        type=int,
+    )
+    return parser.parse_args()
+
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        my_seed = int(sys.argv[1])
-        print('my_seed', my_seed)
+    args = parse_args()
+    if args.seed:
+        my_seed = args.seed
         seed(my_seed)
     main()
