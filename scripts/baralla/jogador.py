@@ -1,18 +1,6 @@
 from pprint import pprint
-from random import randint
 
 from baralla.logica import Logica
-
-
-class Qrl:
-
-    def __init__(self) -> None:
-        pass
-
-    def setup(self):
-        self.alpha = 0.1
-        self.gamma = 0.6
-        # self.q_table = np.zeros([self.env.observation_space.n, self.env.action_space.n])
 
 
 class Jogador:
