@@ -8,24 +8,20 @@ from baralla.jogador import Jogador
 from baralla.jogo import Jogo
 
 
-def monta_grupo_de_2():
-    velha = Jogador('Velha', '0.11.3')
-    nova = Jogador('Nova', '0.12.0.treino')
-
+def monta_grupo_de_2(logica_velha, logica_nova):
+    velha = Jogador('Velha', logica_velha if logica_velha else '0.10.0')
+    nova = Jogador('Nova', logica_nova if logica_nova else '0.10.0')
     grupo = Grupo()
     grupo.adiciona(velha)
     grupo.adiciona(nova)
     return grupo
 
 
-def testa_jogo():
-    grupo = monta_grupo_de_2()
+def main(args):
+    grupo = monta_grupo_de_2(args.velha, args.nova)
     jogo = Jogo('brisca2n', grupo)
     jogo.iniciar()
 
-
-def main():
-    testa_jogo()
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -37,6 +33,16 @@ def parse_args():
         help="Sementa da aleatoriedade",
         type=int,
     )
+    parser.add_argument(
+        '-v',
+        '--velha',
+        help="código da lógica da jogadora 'Velha'",
+    )
+    parser.add_argument(
+        '-n',
+        '--nova',
+        help="código da lógica da jogadora 'Nova'",
+    )
     return parser.parse_args()
 
 if __name__ == '__main__':
@@ -44,4 +50,4 @@ if __name__ == '__main__':
     if args.seed:
         my_seed = args.seed
         seed(my_seed)
-    main()
+    main(args)
