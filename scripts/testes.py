@@ -8,8 +8,8 @@ from baralla.jogo import Jogo
 
 
 def monta_grupo_de_2():
-    velha = Jogador('Velha', '0.11.2')
-    nova = Jogador('Nova', '0.11.3')
+    velha = Jogador('Velha', '0.11.3')
+    nova = Jogador('Nova', '0.12.0.treino')
 
     grupo = Grupo()
     grupo.adiciona(velha)

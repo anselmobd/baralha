@@ -166,4 +166,4 @@ class Logica:
         return self.minha_carta_de_menor_valor(mesa, mao, sobre_trunfo=-1)
 
     def v0_12_0_treino(self, mesa, mao):
-        pass
+        return 0
