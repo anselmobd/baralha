@@ -1,3 +1,4 @@
+from collections import Counter
 from functools import reduce
 from pprint import pprint
 from random import randint, uniform
@@ -30,6 +31,7 @@ class Ambiente:
                     'mao_posicao_3': 41,
                     'mesa': 41,
                 },
+                'valid_state': self.valid_state_uniq_except(''),
                 'action_space': range(3),
                 'action_space_sample': self.action_space_sample_randint02,
             }
@@ -42,6 +44,7 @@ class Ambiente:
 
         self.information_units = attrib['information_units']
         self.information_vector_dimensions = attrib['information_vector_dimensions']
+        self.valid_state = attrib['valid_state']
         self.action_space = attrib['action_space']
         self.action_space_sample = attrib['action_space_sample']
 
@@ -52,7 +55,14 @@ class Ambiente:
         )
 
     def reset(self):
-        return randint(0, self.observation_space_size-1)
+        while True:
+            state = randint(0, self.observation_space_size-1)
+            if self.valid_state(state):
+                return state
+            # else:
+            #     print('invalid', state)
+            #     info = self.state2info_vector(state)
+            #     print(info)
 
     def step(self, action):
         # if 
@@ -63,6 +73,20 @@ class Ambiente:
     def action_space_sample_randint02(self):
         """Não precisa pegar o valor na list action_space, pois são inteiros de 0 a 2"""
         return randint(0, 2)
+
+    # validation of state
+    def valid_state_uniq_except(self, exc):
+        @staticmethod
+        def valid_state_uniq(state):
+            info_vector = self.state2info_vector(state)
+            counts = Counter(info_vector)
+            return all([
+                counts[count] == 1 or count == exc
+                for count in counts
+            ])
+        return valid_state_uniq
+
+    # conversões entre informações do ambiente e índice no observation_space
 
     def idx_vector2state(self, vector):
         """
@@ -86,7 +110,6 @@ class Ambiente:
         for idx, value in enumerate(vector):
             if idx:
                 multiplic *= self.information_vector_dims[idx-1]
-                # print(idx, self.information_vector_dims[idx-1], multiplic)
             value *= multiplic
             state += value
         return state
@@ -98,10 +121,8 @@ class Ambiente:
             if idx:
                 multiplic *= self.information_vector_dims[idx-1]
                 multiplics.append(multiplic)
-        # pprint(multiplics)
         vector = []
         for divisor in multiplics[::-1]:
-            # print(divisor)
             vector.append(state // divisor)
             state = state % divisor
         vector.append(state)
@@ -128,32 +149,15 @@ class Ambiente:
 
 if __name__ == '__main__':
     amb = Ambiente('brisca_mao_mesa')
-    info_vector = ['ao', 'ac', 'ae', '2e']
-    print(info_vector)
-    vector = amb.info_vector2idx_vector(info_vector)
-    print(vector)
-    info_vector = amb.idx_vector2info_vector(vector)
-    print(info_vector)
 
-    # print(
-    #     'vai volta',
-    #     amb.state2info_vector(
-    #         amb.info_vector2state(info_vector)
-    #     )
-    # )
-
-
-
-    vector = [2, 4, 6, 9]
-    print(vector)
-    state = amb.idx_vector2state(vector)
-    print(state)
-    vector = amb.state2idx_vector(state)
-    print(vector)
-
-    info = amb.idx_vector2info_vector(vector)
+    info = ['ao', 'ac', '', '2e']
     print(info)
     state = amb.info_vector2state(info)
+    print(state)
+    info = amb.state2info_vector(state)
+    print(info)
+
+    state = amb.reset()
     print(state)
     info = amb.state2info_vector(state)
     print(info)
