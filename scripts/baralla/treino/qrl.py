@@ -16,12 +16,12 @@ class Qrl:
 
         # observation_space
         # 40 possiveis cartas na posição 1 da mão
-        # 40 (39) possiveis cartas na posição 2 da mão + ausente (por se aproximar do fim do jogo)
+        # 40 (39) possiveis cartas na posição 2 da mão
         # 40 (38) possiveis cartas na posição 3 da mão + ausente (por se aproximar do fim do jogo)
         # 40 (37) possiveis cartas na mesa + ausente (por ser o primeiro a jogar)
-        # 40×41×41×41 = 2_756_840 com posições impossíveis (cartas repetidas) 
-        # 40×40×39×38 = 2_371_200 sem posições impossíveis (mais custoso de trabalhar)
-        self.observation_space_size = 2_756_840
+        # 40×40×41×41 = 2_689_600 com posições impossíveis (cartas repetidas) 
+        # 40×39×39×38 = 2_311_920 sem posições impossíveis (mais custoso de trabalhar)
+        self.observation_space_size = 2_689_600
 
         # action_space
         # escolher uma das 3 possíveis posições da mão
@@ -34,10 +34,6 @@ class Qrl:
 
         self.q_table = np.zeros([self.observation_space_size, len(self.action_space)])
 
-
-    def action_space_sample(self):
-        """Não precisa pegar o valor na list action_space, pois são inteiros de 0 a 2"""
-        return randint(0, 2)
 
     def get_action(self, state):
         if uniform(0, 1) < self.epsilon:
