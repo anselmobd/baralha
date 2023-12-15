@@ -5,9 +5,9 @@ from baralla.logica import Logica
 
 class Jogador:
 
-    def __init__(self, nome, logica='0.10.0') -> None:
+    def __init__(self, nome, logica=None) -> None:
         self.nome = nome
-        self.logica = logica
+        self.logica = logica if logica else '0.10.0'
 
         self.tipo_jogo = None
         self.jogo_def = None

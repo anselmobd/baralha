@@ -9,8 +9,8 @@ from baralla.jogo import Jogo
 
 
 def monta_grupo_de_2(logica_velha, logica_nova):
-    velha = Jogador('Velha', logica_velha if logica_velha else '0.10.0')
-    nova = Jogador('Nova', logica_nova if logica_nova else '0.10.0')
+    velha = Jogador('Velha', logica_velha)
+    nova = Jogador('Nova', logica_nova)
     grupo = Grupo()
     grupo.adiciona(velha)
     grupo.adiciona(nova)
